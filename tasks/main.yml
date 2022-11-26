@@ -1,0 +1,30 @@
+---
+- name: Clone repository
+  git:
+    repo: '{{ gamja_git_repo }}'
+    version: '{{ gamja_git_ref }}'
+    dest: '{{ gamja_service_path }}'
+    force: true
+    update: true
+
+- name: Install Node.js
+  apt:
+    name:
+      - nginx-light
+      - nodejs
+      - npm
+
+- name: Install dependencies
+  command: 'npm install'
+  args:
+    chdir: '{{ gamja_service_path }}'
+
+- name: Build website
+  command: 'npm run build'
+  args:
+    chdir: '{{ gamja_service_path }}'
+
+- name: Create config file
+  template:
+    src:  'config.json.j2'
+    dest: '{{ gamja_web_path }}/config.json'

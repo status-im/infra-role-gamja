@@ -1,0 +1,9 @@
+{
+    "server": {
+        "url": "{{ gamja_config_url | mandatory }}",
+        "auth": "{{ gamja_config_auth | mandatory }}",
+        "nick": "{{ gamja_config_nick | mandatory }}",
+        "autoconnect": {{ gamja_config_autoconnect | to_json }},
+        "ping": {{ gamja_config_autoconnect | int }}
+    }
+}

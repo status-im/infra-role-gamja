@@ -1,0 +1,13 @@
+---
+gamja_service_name: 'gamja-irc-webui'
+gamja_service_path: '/data/{{ gamja_service_name }}'
+gamja_web_path: '{{ gamja_service_path }}/dist'
+
+gamja_git_repo: 'https://git.sr.ht/~emersion/gamja'
+gamja_git_ref: '2d271685297431d64d4e42951300cd05536fcf6c'
+
+gamja_config_url: 'wss://irc.example.org:8097'
+gamja_config_auth: 'optional'
+gamja_config_nick: 'Guest-*'
+gamja_config_autoconnect: false
+gamja_config_ping: 60
